@@ -9,8 +9,8 @@ app.use(bodyParser.json());
 
 //does this belong here or separate file under routes?
 
-// require("./routes/apiRoutes")(app);
-// require("./routes/htmlRoutes")(app);
+ require("/routing/apiRoutes.js")(app);
+ require("/routing/htmlRoutes.js")(app);
 
  app.listen(PORT,function(){
      console.log("App listening on PORT: " + PORT);

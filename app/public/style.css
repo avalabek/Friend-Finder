@@ -1,4 +1,7 @@
-h4,h1,h2,h3{
+h1, h2{
+    font-family:"Rammetto One", cursive;
+}
+h4,h3{
      font-family: "Raleway",
     sans-serif;}
     /* font-family: 'Nanum Myeongjo',
@@ -8,8 +11,8 @@ h4,h1,h2,h3{
 
 .btn-sample {
     color: #ffffff;
-    background-color: #355C7D;
-    border-color: #130269;
+    background-color: #FECEAB;
+    border-color: #FECEAB;
 }
 
 .btn-sample:hover,
