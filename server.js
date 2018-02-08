@@ -8,11 +8,12 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
 //does this belong here or separate file under routes?
-
-//  require("/routing/apiRoutes.js")(app);
+require("./app/routing/htmlRoutes.js")(app);
+// TODAY: start here
+// require("/routing/apiRoutes.js")(app);
 //can I just write it like below?
-require(apiRoutes);
-require(htmlRoutes);
+// require("apiRoutes");
+// require("htmlRoutes");
 //  require("/routing/htmlRoutes.js")(app);
 
  app.listen(PORT,function(){
