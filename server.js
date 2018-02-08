@@ -4,12 +4,18 @@ var bodyParser = require ("body-parser");
 var app = express();
 var PORT = process.env.PORT || 8080;
 
-app.use(bodyParser.urlencoded({extended:false}));
-app.use(bodyParser.json());
+var jsonParser = bodyParser.json()
+var urlencodedParser = bodyParser.urlencoded({extended:false});
+
+// app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.json({type: "application/*+json"}))
+app.use(bodyParser.raw({type: "application/vnd.custom-type"}))
+app.use(bodyParser.text({type: "text/html"}))
 
 //does this belong here or separate file under routes?
 require("./app/routing/htmlRoutes.js")(app);
-// TODAY: start here
+require("./app/routing/apiRoutes.js")(app);
+// require("./app/public/style.css")(app);
 // require("/routing/apiRoutes.js")(app);
 //can I just write it like below?
 // require("apiRoutes");
