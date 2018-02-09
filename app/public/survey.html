@@ -185,24 +185,9 @@
     </div>
 </div>
 <script type = "text/javascript">
+$(document).ready(function(){
 $("#submit").on("click",function(event){
     event.preventDefault();
-    function formValidation(){
-        var validate = true;
-        $(".form-control").each(function(){
-            if ($(this).val()===""){
-                validate = false;
-            }
-        });
-        $(".chosen-select")if ($).each(function(){
-            if ($(this).val() === "") {
-                validate = false;
-        }
-
-    });
-    return validate;
-}
-if (formValidation()){
     var userData = {
         name: $("#name").val(),
         photo: $("#photo").val(),
@@ -215,39 +200,45 @@ if (formValidation()){
             $("#q7").val(),
             $("#q8").val(),
             $("#q9").val(),
-            $("#q10").val()
-        ],
-        total: $("#q1").val()+
-        $("#q2").val()+
-        $("#q3").val()+
-        $("#q4").val()+
-        $("#q5").val()+
-        $("#q6").val()+
-        $("#q7").val()+
-        $("#q8").val()+
-        $("#q9").val()+
-        $("#q10").val()
+            $("#q10").val()],
+        total: parseInt($("#q1").val()+
+                $("#q2").val()+
+                $("#q3").val()+
+                $("#q4").val()+
+                $("#q5").val()+
+                $("#q6").val()+
+                $("#q7").val()+
+                $("#q8").val()+
+                $("#q9").val()+
+                $("#q10").val())
+        
     }
-};
-// $.post("/api/friends", userData, function(data){}s)
+
+ var currentURL = window.location.origin;
+// $.post(currentURL+"/api/friends", userData, function(data){
     $.ajax({
-        url: "/api/friends",
+         url: "/api/friends",
         type: "POST",
-        data: JSON.stringify(scoreData),
+        data: userData,
         dataType: "json",
         contentType: "application/json; charset=utf-8",
         success: function (data) {
 
-            $("match-name").text(data.name);
-            $("match-img").attr("src", data.photo);
-            $("#results-modal").modal("toggle");
-        }
+            $("match-name").text(friends.name);
+             $("match-img").attr("src", friends.photo);
+             $("#results-modal").modal("open");
+           }
     });
-}else{
-    alert("Please complete all fields.");
+        
+    
+     
+// }else{
+//     alert("Please complete all fields.");
 
-}
+alert ("Alert works; but is it posting data? Inspect.");
+//but it isn't posting data into the right place
 });
+})
 </script>
     </body>
 </html>

@@ -4,7 +4,7 @@
 var friends =[
     {
         name: "Josh",
-        photo: "/images/Josh.jpg",
+        photo: "http://www.imdb.com/name/nm0000982/mediaviewer/rm1057851904",
         scores:[5,4,3,4,5,2,1,2,3,5,5],
         total:39
     },
@@ -71,34 +71,3 @@ var friends =[
         total: 16
 }];
     module.exports = friends;
-//     app.get("/routing/apiRoutes/:friends?", function(req,res){
-//         // var bestMatch = req.params.friends;
-//         // bestMatch is where you add all the scores and subtract
-//         // from the users score, so we need to take in user
-//         // score and why not just add up the scores for the totals
-//         //because that will be the same as subtractint each one
-//         //so then assign javier 25 and say I score 50 our
-//         // difference is 25 where as Matt would be 40 and
-//         //that would only be a 10 difference
-//         var userTotal; //grab with jquery
-//         var bestMatch;
-//         var difference;
-//         var leastDifference;
-//         for (var i = 0; i<friends.length; i++){
-//                if (userTotal === friends.total){
-//                    //send out the modal with the image
-// //return res.json(false);
-// //return res.json(friends);
-//                    alert("We have a match! It's " + this.friends.name "!")
-//                }else{
-//                    for (var j=0; j<friends.length; j++){
-//                        //need a calculation for finding least difference
-//                        if (this.friends.total-userTotal) < (that.friends.total - userTotal){
-//                            alert("Your closest match is " + this.friends.name)
-//                        } 
-                
-//                    }
-//                }
-//            } 
-//         }
-//     });
