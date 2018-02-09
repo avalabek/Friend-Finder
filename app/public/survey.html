@@ -17,7 +17,7 @@
 <link href="https://fonts.googleapis.com/css?family=Raleway|Rammetto+One" rel="stylesheet">
 <!-- <link href="assets/css/reset.css" rel="stylesheet" type="text/css"> -->
 <!-- <link href="style.css" rel="stylesheet" type="text/css"> -->
-<link href="/app/public/style.css" rel="stylesheet" type="text/css">
+<link href="./app/public/style.css" rel="stylesheet" type="text/css">
 <!-- Chosen?
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script> -->
@@ -150,7 +150,7 @@
 
 <br>
 <br>
-<button type="submit" class="btn btn-sample btn-lg" id="submit"><i class = "fa fa-check-circle" aria-hidden="true"></i>Submit</button>
+<button type="submit" class="btn btn-sample btn-lg" id="submit" style="background-color:#F8B195; color:white;"><i class = "fa fa-heart" aria-hidden="true"></i> Submit</button>
 <hr>
 <footer class ="footer">
     <div class="container">
@@ -176,10 +176,10 @@
                 <h2 id="match-name"></h2>
                 <img id="match-img" 
                 
-                src="/data/images/matt/jpg" alt="">
+                src="/data/images/matt.jpg" alt="">
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
@@ -213,29 +213,55 @@ $("#submit").on("click",function(event){
                 $("#q10").val())
         
     }
-
- var currentURL = window.location.origin;
+//the following pulls up modal, no error, no data
+  var currentURL = window.location.origin;
 // $.post(currentURL+"/api/friends", userData, function(data){
-    $.ajax({
-         url: "/api/friends",
-        type: "POST",
-        data: userData,
-        dataType: "json",
-        contentType: "application/json; charset=utf-8",
+    $.ajax(currentURL,  {
         success: function (data) {
+            $("match-name").text(data.name);
+            $("match-img").attr("src", data.image);
+            $("#results-modal").modal("toggle");
 
-            $("match-name").text(friends.name);
-             $("match-img").attr("src", friends.photo);
-             $("#results-modal").modal("open");
-           }
+        },
+        error: function () {
+        alert("An error occurred.");
+        }
     });
+    
+   //the following gives a 404 error 
+    //  $.ajax({
+    //      url: "/api/friends",
+    //      type: "POST",
+    //      data: {format:"json"},
+    //      dataType: "json",
+    //      contentType: "application/json; charset=utf-8",
+    //      success: function(data){
+    //          $("match-name").text("blahblah");
+    //          $("match-img").attr("src", "");
+    //           $("#results-modal").modal("toggle");
+
+    //      }
+    //  });
+       // $.ajax({
+    //      url: "/api/friends",
+    //     type: "POST",
+    //     data: userData,
+    //     dataType: "json",
+    //     contentType: "application/json; charset=utf-8",
+    //     success: function (data) {
+
+    //         $("match-name").text(friends.name);
+    //          $("match-img").attr("src", friends.photo);
+    //          $("#results-modal").modal("open");
+    //        }
+    // });
         
     
      
 // }else{
 //     alert("Please complete all fields.");
 
-alert ("Alert works; but is it posting data? Inspect.");
+// alert ("Alert works; but is it posting data? Inspect.");
 //but it isn't posting data into the right place
 });
 })

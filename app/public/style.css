@@ -1,13 +1,19 @@
-h1, h2{
+h1, h2,h5 {
     font-family:"Rammetto One", cursive;
 }
-h4,h3{
+ h3, h4{
+    /*font-family: 'BioRhyme Expanded',
+    serif;*/
      font-family: "Raleway",
-    sans-serif;}
+    sans-serif; 
     /* font-family: 'Nanum Myeongjo',
     serif; */
-    /* font-family: 'Josefin Sans',
-    sans-serif;*/
+}
+body {
+font-family: "Raleway",
+    sans-serif; 
+
+}
 
 .btn-sample {
     color: #ffffff;
