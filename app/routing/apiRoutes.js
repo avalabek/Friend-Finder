@@ -5,54 +5,58 @@ var express = require("express");
 var app = express();
 
 //so can be used in other files
-module.exports = function(app){
+module.exports = function (app) {
     //display the friends of json 
-    app.get("/api/friends", function(req,res) {
-    res.json(friends);
+    app.get("/api/friends", function (req, res) {
+        res.json(friends);
     });
 
-    app.post("/api/friends",function(req,res){
+    app.post("/api/friends", function (req, res) {
         var bestMatch = {
             name: "",
-            photo:"",
+            photo: "",
             friendDifference: 1000
         };
         console.log("%%%%%%%req.body%%%%%");
         console.log(req.body);
         //the above works, logs form input
-        
-        
+
+
         var userData = req.body;
         //this is not console.loggging why? skip this step
         // and just do req.body.scores = userScores?
         // console.log(userData);
         var userScores = userData.scores;
-        
+
         // var scoresArray = [];
         // var friendCount = 0;
         // var bestMatch = 0;
-var totalDifference=0;
+        var totalDifference = 0;
 
-        for(var i=0;i<friends.length; i++){
+        for (var i = 0; i < friends.length; i++) {
             totalDifference = 0;
             // for (var j =0; j<userScores.length; j++){
-            for (var j=0; j<friends[i].scores;j++){
+            for (var j = 0; j < friends[i].scores.length; j++) {
+                var uScore = parseInt(userScores[j]);
+                var fScore = parseInt(friends[i].scores[j])
+                totalDifference += Math.abs(uScore - fScore);
 
-               totalDifference+=Math.abs(parseInt(userScores[j])-parseInt(friends[i]-scores[j]));
-                if (totalDifference <= bestMatch.friendDifference) {
-                    bestMatch.name = friends[i].name;
-                    bestMatch.photo = friends[i].photo;
-                    bestMatch.friendDifference = totalDifference;
+            }
+            console.log(totalDifference);
+            if (totalDifference <= bestMatch.friendDifference) {
+                bestMatch.name = friends[i].name;
+                bestMatch.photo = friends[i].photo;
+                bestMatch.friendDifference = totalDifference;
 
-                   };
+            };
         }
-                
-    }
-        friends.push(userData); 
-})
-}    
-   
-            // difference += (Math.abs(parseInt(friends[i].scores[j])-parseInt(userScores[j])));
+        console.log("Best:", bestMatch);
+        friends.push(userData);
+        res.json(bestMatch);
+    })
+}
+
+// difference += (Math.abs(parseInt(friends[i].scores[j])-parseInt(userScores[j])));
 
 //             }
 //             scoresArray.push(difference);
@@ -77,12 +81,10 @@ var totalDifference=0;
 // };
 
 
-            // if (difference<differenceBetweenFriends){
-            //     differenceBetweenFriends = difference;
-            //     matchName = friend[i].name;
-            //     matchImage = friend[i].photo;
-            // }
-        //  friends.push(userData);
-        // res.json({status: "ok", matchName:matchName, matchImage: matchImage});
-
- 
+// if (difference<differenceBetweenFriends){
+//     differenceBetweenFriends = difference;
+//     matchName = friend[i].name;
+//     matchImage = friend[i].photo;
+// }
+//  friends.push(userData);
+// res.json({status: "ok", matchName:matchName, matchImage: matchImage});
