@@ -4,6 +4,7 @@ var path = require("path");
 //I don't really understand this syntax of making the function and passing in app 
 module.exports = function(app){
 
+    //app.use or app.get?
     app.get("/", function (req, res) {
         res.sendFile(path.join(__dirname, "../public/home.html")); 
 });

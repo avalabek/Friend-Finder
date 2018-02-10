@@ -16,11 +16,8 @@
 <!-- google fonts -->
 <link href="https://fonts.googleapis.com/css?family=Raleway|Rammetto+One" rel="stylesheet">
 <!-- <link href="assets/css/reset.css" rel="stylesheet" type="text/css"> -->
-<!-- <link href="style.css" rel="stylesheet" type="text/css"> -->
-<link href="./app/public/style.css" rel="stylesheet" type="text/css">
-<!-- Chosen?
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script> -->
+<link href="style.css" rel="stylesheet" type="text/css">
+<!-- <link href="./app/public/style.css" rel="stylesheet" type="text/css"> -->
 
     </head>
     <body style="background-color:#355C7D">
@@ -185,55 +182,88 @@
 <script type = "text/javascript">
 
     // var friends = require("../data/friends.js");
-$(document).ready(function(){
-$("#submit").on("click",function(event){
-    event.preventDefault();
-    //the below will not work client-side, so do I need to move this js or use a package
-    // like browserify to bundle it?
-// var apiRoutes = require("../routing/apiRoutes.js");
-    
-    var userData = {
-        name: $("#name").val(),
-        photo: $("#photo").val(),
-        scores:[$("#q1").val(),
-            $("#q2").val(),
-            $("#q3").val(),
-            $("#q4").val(),
-            $("#q5").val(),
-            $("#q6").val(),
-            $("#q7").val(),
-            $("#q8").val(),
-            $("#q9").val(),
-            $("#q10").val()]
-        
-    }
-    console.log(userData);
-//the following pulls up modal, no error, no data
-  var currentURL = window.location.origin;
-  //adding new stuff here to line 218:
 
-$.post(currentURL+"/api/friends", userData, function(data){
-    
-        alert("A new friend!Now check apiFriendsList.");
-    });
-    
-    
-    
+    $(document).ready(function () {
+        $("#submit").on("click", function (event) {
+            event.preventDefault();
+            //the below will not work client-side, so do I need to move this js or use a package
+            // like browserify to bundle it?
+            // var apiRoutes = require("../routing/apiRoutes.js");
+
+            var userData = {
+                name: $("#name").val(),
+                photo: $("#photo").val(),
+                scores: [$("#q1").val(),
+                $("#q2").val(),
+                $("#q3").val(),
+                $("#q4").val(),
+                $("#q5").val(),
+                $("#q6").val(),
+                $("#q7").val(),
+                $("#q8").val(),
+                $("#q9").val(),
+                $("#q10").val()]
+
+            };
+            //this console.logs in terminal
+            console.log("&&&&&&&userData&&&&&&&&&survey.html")
+            console.log(userData);
+            //the following pulls up modal, no error, no data
+            var currentURL = window.location.origin;
+            //adding new stuff here to line 218:
+
+            $.post(currentURL + "/api/friends", userData, function (data) {
+                
+                    $("#match-name").text(data.name);
+                    $("#match-img").attr("src", data.photo);
+                    $("#results-modal").modal("toggle");
+                    //  $("#match-name").text(data["name"]);
+                    // $("#match-img").attr("src", data["photo"]);
+                    // // $("#results-modal").modal("toggle");
+                    // alert("A new friend!Now check apiFriendsList.");
+                });
+
+// //the below does not console.log anywhere 215-226 commented out
+//                 console.log("_____________data________survey.html");
+// console.log(data);
+            // });
+//                 $("#match-name").text(data.name);
+//                 $("#match-img").attr("src", data.photo);
+//                 $("#results-modal").modal("toggle");
+//                 //  $("#match-name").text(data["name"]);
+//                 // $("#match-img").attr("src", data["photo"]);
+//                 // // $("#results-modal").modal("toggle");
+//                 // alert("A new friend!Now check apiFriendsList.");
+//             });
+
+// 230 235 238-246 comment back in if no workywork    
     //it is getting the data I tell it to, but not from apiroutes.js
  $.ajax({url: currentURL + "/api/friends", method: "GET"})
-.done(function(data){
+//here is the problem: data is not bringing me the "match " variable from apiRoutes
+// how to get it to do this? no matter what I call it, it will bring me teh data, but 
+// how to tell it to bringme the data that it should have sorted through and put in as match?
+
+  .done(function(data){
     // console.log(JSON.stringify(data[1]["name"]));
-    console.log(data);
-    $("#match-name").text(data[1]["name"]);
-    $("#match-img").attr("src", data[1]["photo"]);
-    $("#results-modal").modal("toggle");
-});
-})   
-   
-   
-    
-});
-// })
+//  console.log(friends.bestMatch);
+      $("#match-name").text(data[1]["name"]);
+      $("#match-img").attr("src", data[1]["photo"]);
+      $("#results-modal").modal("toggle");
+      });
+ })   
+
+
+
+ });
+ 
 </script>
-    </body>
+</body>
+
 </html>
+        <!-- });
+        // return false;
+    });
+</script>
+</body>
+
+</html> -->
