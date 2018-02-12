@@ -3,8 +3,8 @@
 
 var friends =[
     {
-        name: "Jake",
-        photo: "https://upload.wikimedia.org/wikipedia/commons/1/1b/Jake_Gyllenhaal_at_Proof_opening.jpg",
+        name: "Patrick",
+        photo: "https://www.famousbirthdays.com/headshots/patrick-dempsey-3.jpg",
         scores:[5,4,3,4,5,2,1,2,3,5],
         total:39
     },
@@ -29,44 +29,44 @@ var friends =[
 
     {   
         name: "Daniel",
-        photo: "/images/daniel.jpg",
+        photo: "https://resizing.flixster.com/Jsnvwjt0W43E6MlL9P2ljgpCN4I=/300x300/v1.cjs0ODI3ODtqOzE3NTk1OzEyMDA7MzE5OzMxOQ",
         scores: [1, 2, 3, 4, 5, 4, 3, 2, 1, 2],
         total: 30
 },
     {
         name: "Claire",
-        photo: "/images/claire.jpg",
+        photo: "https://blogs.weta.org/tellyvisions/sites/blogs.weta.org.tellyvisions/files/styles/facebook/public/The%20Crown%20Claire%20Foy.jpg?itok=NkwZpYPl",
         scores: [3, 3, 3, 3, 3, 3, 3, 3, 3, 1],
         total: 26
     },
     {
         name: "Daveed",
-        photo: "/images/david.jpg",
+        photo: "https://images-na.ssl-images-amazon.com/images/M/MV5BMTY5NzA2ODI1MV5BMl5BanBnXkFtZTgwMzg1OTg4ODE@._V1_UY317_CR59,0,214,317_AL_.jpg",
         scores: [5, 5, 4, 5, 1, 2, 4, 4, 3, 4],
         total: 41
     },
 
     {
         name: "Lin",
-        photo: "/images/Lin.jpg",
+        photo: "https://fortunedotcom.files.wordpress.com/2016/09/lin-10-01-16-miranda-03.jpg",
         scores: [5, 4, 3, 5, 1, 3, 1, 2, 1, 2],
         total: 32
     },
     {
         name: "Elizabeth",
-        photo: "/images/Elizabeth.jpg",
+        photo: "https://www.thesun.co.uk/wp-content/uploads/2017/07/nintchdbpict000338550798.jpg?strip=all&w=960",
         scores: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
         total: 10
     },
     {
         name: "Octavia",
-        photo: "/images/octavia.jpg",
+        photo: "http://cdn2us.denofgeek.com/sites/denofgeekus/files/2018/01/octavia-spencer-true-crime-drama-are-you-sleeping-apple.jpg",
         scores: [2, 2, 2, 3, 3, 2, 2, 2, 2, 2],
         total: 20
     },
     {
         name: "Javier",
-        photo: "/images/javier.jpg",
+        photo: "https://vignette.wikia.nocookie.net/jamesbond/images/2/21/Javier_Bardem_-_Profile.jpg/revision/latest?cb=20130106125710",
         scores: [2, 1, 3, 2, 1, 1, 1, 1, 1, 2],
         total: 16
 }];
