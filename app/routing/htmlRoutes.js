@@ -6,7 +6,7 @@ module.exports = function(app){
 
     //app.use or app.get?
     app.get("/", function (req, res) {
-        res.sendFile(path.join(__dirname, "../public/home.html")); 
+        res.sendFile(path.join(__dirname, "../public/index.html")); 
 });
     app.get("/survey", function (req, res) {
         res.sendFile(path.join(__dirname, "../public/survey.html"));
@@ -14,6 +14,6 @@ module.exports = function(app){
 
     //not sure here
 //  app.use("/", function(req, res){
-//      res.sendFile(path.join(__dirname, "../public/home.html"));
+//      res.sendFile(path.join(__dirname, "../public/index.html"));
 //  })
 }
