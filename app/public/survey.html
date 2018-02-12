@@ -222,11 +222,12 @@
                 
                     $("#match-name").text(data.name);
                     $("#match-img").attr("src", data.photo);
-                    $("#results-modal").modal("toggle");
+                    $("#results-modal").modal("open");
                     //  $("#match-name").text(data["name"]);
                     // $("#match-img").attr("src", data["photo"]);
                     // // $("#results-modal").modal("toggle");
                     // alert("A new friend!Now check apiFriendsList.");
+               console.log("this is the data_____________________")
                console.log(data);
                 });
 
@@ -243,7 +244,7 @@
 //                 // alert("A new friend!Now check apiFriendsList.");
 //             });
 
-// 230 235 238-246 comment back in if no workywork    
+// 230 235 238-246 comment back in if no work  
     //it is getting the data I tell it to, but not from apiroutes.js
  $.ajax({url: currentURL + "/api/friends", method: "GET"})
 //here is the problem: data is not bringing me the "match " variable from apiRoutes
@@ -253,9 +254,12 @@
   .done(function(data){
     // console.log(JSON.stringify(data[1]["name"]));
 //  console.log(friends.bestMatch);
-      $("#match-name").text(data[1]["name"]);
-      $("#match-img").attr("src", data[1]["photo"]);
+      $("#match-name").text(data.name);
+      $("#match-img").attr("src", data.photo);
       $("#results-modal").modal("toggle");
+    //   $("#match-name").text(data[1]["name"]);
+    //   $("#match-img").attr("src", data[1]["photo"]);
+    //   $("#results-modal").modal("toggle");
       });
  })   
 
