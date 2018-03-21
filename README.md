@@ -13,7 +13,8 @@ A full-stack app built with
 * JavaScript
 * Heroku
 
-[Friend-Finder]("https://frozen-meadow-63434.herokuapp.com/" "Friend-Finder")
+This full-stack app was deployed using [Heroku](https://frozen-meadow-63434.herokuapp.com/).
+
 
 Maybe, just maybe, you'll get Matt Smith.
 
